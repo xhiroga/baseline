@@ -1,4 +1,4 @@
-type CostAnomalySubscriptionConfig = {
+export type CostAnomalySubscriptionConfig = {
   readonly frequency: 'DAILY' | 'WEEKLY' | 'IMMEDIATE';
   readonly thresholdDollar: number;
 };
