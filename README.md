@@ -1,14 +1,30 @@
-# Welcome to your CDK TypeScript project!
+# baseline
 
-This is a blank project for TypeScript development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Baseline of security, reliability, monitoring and cost.
 
 ## Useful commands
+
+```shell
+# set one of them
+export CDK_BIN=baseline-root
+export CDK_BIN=baseline-dynamic
+```
 
  * `npm run build`   compile typescript to js
  * `npm run watch`   watch for changes and compile
  * `npm run test`    perform the jest unit tests
- * `yarn cdk deploy`      deploy this stack to your default AWS account/region
- * `yarn cdk diff`        compare deployed stack with current state
- * `yarn cdk synth`       emits the synthesized CloudFormation template
+ * `yarn cdk deploy --context envName=${ENV_NAME}`      deploy this stack to your default AWS account/region
+ * `yarn cdk diff --context envName=${ENV_NAME}`        compare deployed stack with current state
+ * `yarn cdk synth --context envName=${ENV_NAME}`       emits the synthesized CloudFormation template
+
+## Reference
+
+### Styleguide
+
+- [AWS CDKでクラウドアプリケーションを開発するためのベストプラクティス](https://aws.amazon.com/jp/blogs/news/best-practices-for-developing-cloud-applications-with-aws-cdk/)
+- [Open CDK Guide](https://github.com/kevinslin/open-cdk)
+
+### Official
+
+- [AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html)
+- [AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-construct-library.html)

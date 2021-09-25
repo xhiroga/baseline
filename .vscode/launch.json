@@ -11,7 +11,7 @@
                 "./node_modules/ts-node/register/transpile-only"
             ],
             // Entry point of your stack
-            "args": ["${workspaceFolder}/bin/aws-security-management.ts"]
+            "args": ["${workspaceFolder}/bin/baseline-dynamic.ts"]
         }
     ]
 }
