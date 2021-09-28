@@ -1,14 +1,12 @@
 export type LogsErrorNotificationConfig = {
   logGroupNameFilter: RegExp;
-  logFilter: RegExp;
-  topicArnFilter: RegExp;
+  filterPattern: string;
 };
 
 export const logsErrorNotificationConfigs: LogsErrorNotificationConfig[] = [
   {
     logGroupNameFilter: /.+/,
-    logFilter:
-      /(?<!(DEBUG|INFO|WARN)[\S\s]+)(FATAL|Fatal|fatal|PANIC|Panic|panic|ERROR|Error|error)/,
-    topicArnFilter: /DefaultNotificationTopic/,
+    filterPattern:
+      '?FATAL ?Fatal ?fatal ?PANIC ?Panic ?panic ?ERROR ?Error ?error ?WARN ?Warn ?warn',
   },
 ];

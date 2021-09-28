@@ -37,14 +37,25 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-backup": "^1.124.0",
     "@aws-cdk/aws-ce": "^1.124.0",
     "@aws-cdk/aws-cloudwatch": "^1.124.0",
     "@aws-cdk/aws-cloudwatch-actions": "^1.124.0",
+    "@aws-cdk/aws-events": "^1.124.0",
+    "@aws-cdk/aws-iam": "^1.124.0",
+    "@aws-cdk/aws-lambda": "^1.124.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.124.0",
     "@aws-cdk/aws-logs": "^1.124.0",
+    "@aws-cdk/aws-logs-destinations": "^1.124.0",
     "@aws-cdk/aws-sns": "^1.124.0",
     "@aws-cdk/core": "1.124.0",
     "@aws-sdk/client-cloudwatch-logs": "^3.33.0",
+    "@aws-sdk/client-dynamodb": "^3.34.0",
     "@aws-sdk/client-ec2": "^3.32.0",
+    "@aws-sdk/client-s3": "^3.34.0",
+    "@aws-sdk/client-sts": "^3.34.0",
+    "@types/aws-lambda": "^8.10.83",
+    "aws-lambda": "^1.0.6",
     "source-map-support": "^0.5.16"
   }
 }

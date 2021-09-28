@@ -9,10 +9,10 @@ import { ITopic } from '@aws-cdk/aws-sns';
 import { Construct } from '@aws-cdk/core';
 import { Instance } from '@aws-sdk/client-ec2';
 
-export interface Ec2AlarmProps {
+export type Ec2AlarmProps = {
   instance: Instance;
   topics: ITopic[];
-}
+};
 
 export class Ec2Alarm extends Construct {
   constructor(scope: Construct, id: string, props: Ec2AlarmProps) {

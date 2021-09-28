@@ -1,0 +1,58 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Logs Subscription Template
+
+Parameters:
+  BaseStack:
+    Type: String
+    Description: Please input base stack name
+  Env:
+    Type: String
+    Default: dev
+  LogFilterPattern:
+    Type: String
+    Default: "?FATAL ?Fatal ?fatal ?PANIC ?Panic ?panic ?ERROR ?Error ?error ?WARN ?Warn ?warn"
+  SlackWebhookPath:
+    Type: String
+
+Resources:
+  Subscriber:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${Env}Subscriber
+      CodeUri: src/
+      Handler: lambda-handler.handler
+      MemorySize: 256
+      Runtime: nodejs14
+      Timeout: 300
+      Role: { "Fn::ImportValue": !Join [ "-", [ "Ref":"BaseStack", "basicLambdaRoleArn"]] }
+      Environment:
+        Variables:
+          SLACK_WEBHOOK_PATH: !Ref SlackWebhookPath
+      Events:
+        LogGroup1:
+          Type: CloudWatchLogs
+          Properties:
+            LogGroupName: { "Fn::ImportValue": !Join [ "-", [ "Ref":"Env", "LogGroup1"]] }
+            FilterPattern: !Ref LogFilterPattern
+        LogGroup2:
+          Type: CloudWatchLogs
+          Properties:
+            LogGroupName: { "Fn::ImportValue": !Join [ "-", [ "Ref":"Env", "LogGroup2"]] }
+            FilterPattern: !Ref LogFilterPattern
+        LogGroup3:
+          Type: CloudWatchLogs
+          Properties:
+            LogGroupName: { "Fn::ImportValue": !Join [ "-", [ "Ref":"Env", "LogGroup3"]] }
+            FilterPattern: !Ref LogFilterPattern
+        LogGroup4:
+          Type: CloudWatchLogs
+          Properties:
+            LogGroupName: { "Fn::ImportValue": !Join [ "-", [ "Ref":"Env", "LogGroup4"]] }
+            FilterPattern: !Ref LogFilterPattern
+        LogGroup5:
+          Type: CloudWatchLogs
+          Properties:
+            LogGroupName: { "Fn::ImportValue": !Join [ "-", [ "Ref":"Env", "LogGroup5"]] }
+            FilterPattern: !Ref LogFilterPattern
