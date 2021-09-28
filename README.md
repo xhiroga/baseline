@@ -2,6 +2,15 @@
 
 Baseline of security, reliability, monitoring and cost.
 
+## Notification
+
+2021-09-28 16:05~より、[#AWSDevDay](https://twitter.com/search?q=%23AWSDevDay&src=recent_search_click&f=live)にて本リポジトリを用いたセッション、[C-3 [AWS CDK] 1,000+のCloudWatch Alarmを自動生成する技術](https://aws.amazon.com/jp/about-aws/events/2021/devday)が開催されます。ぜひご視聴くださいませ！
+
+## Sponsored
+
+本リポジトリの内容は、保険SaaSを提供する[justInCase](https://justincase.jp/)での取り組みを基にしています。  
+[絶賛採用中](https://justincase.jp/careers)ですので、ご興味を持っていただけた方はぜひ面談しましょう！
+
 ## Useful commands
 
 ```shell
