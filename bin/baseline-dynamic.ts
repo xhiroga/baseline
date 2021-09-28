@@ -4,11 +4,14 @@ import 'source-map-support/register';
 import { DynamoDBApi } from '../lib/api/dynamodb-api';
 import { Ec2Api } from '../lib/api/ec2-api';
 import { LogsApi } from '../lib/api/logs-api';
+import { isRoutedToIpOrCloudFront, Route53Api } from '../lib/api/route53-api';
 import { StsApi } from '../lib/api/sts-api';
 import { DynamoDBBackupStack } from '../lib/stacks/dynamodb-backup-stack';
 import { Ec2AlarmsStack } from '../lib/stacks/ec2-alarms-stack';
 import { LogsSubscriptionsStack } from '../lib/stacks/logs-subscription-stack';
+import { Route53HealthCheckStack } from '../lib/stacks/route53-health-check-stack';
 import { TopicsReferenceStack } from '../lib/stacks/topics-reference-stack';
+import { flatten } from '../lib/util/flatten';
 
 const synth = async () => {
   const app = new cdk.App();
@@ -36,12 +39,6 @@ const synth = async () => {
       topics,
     });
 
-    const dynamodbApi = new DynamoDBApi(region, accountId);
-    const tableArns = await dynamodbApi.listTableArns();
-    new DynamoDBBackupStack(app, `${envName}-${region}-DynamoDBBackupStack`, {
-      tableArns,
-    });
-
     const logsApi = new LogsApi(region);
     const logs = await logsApi.listLogGroups();
     new LogsSubscriptionsStack(
@@ -53,6 +50,29 @@ const synth = async () => {
         topics,
         slackWebhookPath: 'dummyPath',
       }
+    );
+
+    const dynamodbApi = new DynamoDBApi(region, accountId);
+    const tableArns = await dynamodbApi.listTableArns();
+    new DynamoDBBackupStack(app, `${envName}-${region}-DynamoDBBackupStack`, {
+      tableArns,
+    });
+
+    const route53Api = new Route53Api(region);
+    const hostedZones = await route53Api.listPublicHostedZones();
+    const resourceRecordSets = flatten(
+      await Promise.all(
+        hostedZones.map(
+          async (hostedZone) =>
+            await route53Api.listResourceRecordSets(hostedZone)
+        )
+      )
+    );
+    const targetRecords = resourceRecordSets.filter(isRoutedToIpOrCloudFront);
+    new Route53HealthCheckStack(
+      app,
+      `${envName}-${region}-Route53HealthCheckStack`,
+      { resourceRecordSets: targetRecords, topics }
     );
   });
 };

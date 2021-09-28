@@ -355,7 +355,7 @@
     "@aws-cdk/cx-api" "1.124.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-route53@1.124.0":
+"@aws-cdk/aws-route53@1.124.0", "@aws-cdk/aws-route53@^1.124.0":
   version "1.124.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-route53/-/aws-route53-1.124.0.tgz#a55b16dd21a67e5212640977bb9f41eb7824f4c6"
   integrity sha512-HgCzDT6GmwV8M305yS5lDGXlIC/jopLBPysxd8lOJ1Os8f/BDKtPg2upFUj0g6j0N5qUsgihftLSVpsKvB2SFg==
@@ -766,6 +766,48 @@
     fast-xml-parser "3.19.0"
     tslib "^2.3.0"
     uuid "^8.3.2"
+
+"@aws-sdk/client-route-53@^3.34.0":
+  version "3.34.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-route-53/-/client-route-53-3.34.0.tgz#493524750c207d6cd79727869ee6828a2a3d9606"
+  integrity sha512-9J6iDLAezaoUuFYjHHZe91lhEP6DRxlrF6VM+BPMtMymXN5KBTtg4r4h9nmX3wrCdbGoE9UvYTZ4kkjZNL/Qnw==
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0"
+    "@aws-crypto/sha256-js" "^1.0.0"
+    "@aws-sdk/client-sts" "3.34.0"
+    "@aws-sdk/config-resolver" "3.34.0"
+    "@aws-sdk/credential-provider-node" "3.34.0"
+    "@aws-sdk/fetch-http-handler" "3.34.0"
+    "@aws-sdk/hash-node" "3.34.0"
+    "@aws-sdk/invalid-dependency" "3.34.0"
+    "@aws-sdk/middleware-content-length" "3.34.0"
+    "@aws-sdk/middleware-host-header" "3.34.0"
+    "@aws-sdk/middleware-logger" "3.34.0"
+    "@aws-sdk/middleware-retry" "3.34.0"
+    "@aws-sdk/middleware-sdk-route53" "3.34.0"
+    "@aws-sdk/middleware-serde" "3.34.0"
+    "@aws-sdk/middleware-signing" "3.34.0"
+    "@aws-sdk/middleware-stack" "3.34.0"
+    "@aws-sdk/middleware-user-agent" "3.34.0"
+    "@aws-sdk/node-config-provider" "3.34.0"
+    "@aws-sdk/node-http-handler" "3.34.0"
+    "@aws-sdk/protocol-http" "3.34.0"
+    "@aws-sdk/smithy-client" "3.34.0"
+    "@aws-sdk/types" "3.34.0"
+    "@aws-sdk/url-parser" "3.34.0"
+    "@aws-sdk/util-base64-browser" "3.34.0"
+    "@aws-sdk/util-base64-node" "3.34.0"
+    "@aws-sdk/util-body-length-browser" "3.34.0"
+    "@aws-sdk/util-body-length-node" "3.34.0"
+    "@aws-sdk/util-user-agent-browser" "3.34.0"
+    "@aws-sdk/util-user-agent-node" "3.34.0"
+    "@aws-sdk/util-utf8-browser" "3.34.0"
+    "@aws-sdk/util-utf8-node" "3.34.0"
+    "@aws-sdk/util-waiter" "3.34.0"
+    "@aws-sdk/xml-builder" "3.34.0"
+    entities "2.2.0"
+    fast-xml-parser "3.19.0"
+    tslib "^2.3.0"
 
 "@aws-sdk/client-s3@^3.34.0":
   version "3.34.0"
@@ -1573,6 +1615,14 @@
     "@aws-sdk/types" "3.32.0"
     "@aws-sdk/util-format-url" "3.32.0"
     "@aws-sdk/util-uri-escape" "3.32.0"
+    tslib "^2.3.0"
+
+"@aws-sdk/middleware-sdk-route53@3.34.0":
+  version "3.34.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-sdk-route53/-/middleware-sdk-route53-3.34.0.tgz#2e188221682aab99e28f2446e7ad2b84c4282250"
+  integrity sha512-ldAMLda7AIrTdZeZP7pckM+HdRI41BMp7sjerhSEbhAjW0PGgPNki/KROFANL5PbQTiS6q/UpknlpUL9ROUonA==
+  dependencies:
+    "@aws-sdk/types" "3.34.0"
     tslib "^2.3.0"
 
 "@aws-sdk/middleware-sdk-s3@3.34.0":
