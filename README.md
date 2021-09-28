@@ -6,6 +6,8 @@ Baseline of security, reliability, monitoring and cost.
 
 2021-09-28 16:05~より、[#AWSDevDay](https://twitter.com/search?q=%23AWSDevDay&src=recent_search_click&f=live)にて本リポジトリを用いたセッション、[C-3 [AWS CDK] 1,000+のCloudWatch Alarmを自動生成する技術](https://aws.amazon.com/jp/about-aws/events/2021/devday)が開催されます。ぜひご視聴くださいませ！
 
+なお、登壇資料は[こちら](https://speakerdeck.com/hiroga/aws-cdk-technics-to-generate-1-000-plus-cloudwatch-alarms)です。
+
 ## Sponsored
 
 本リポジトリの内容は、保険SaaSを提供する[justInCase](https://justincase.jp/)での取り組みを基にしています。  
